@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod 110 hello
+su chmod 110 hello
