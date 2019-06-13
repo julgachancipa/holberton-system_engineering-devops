@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chmod 110 hello
+chmod 554 ./hello
