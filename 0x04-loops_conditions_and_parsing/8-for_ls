@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#cut
 for f in ./*
 do
     echo "$f" | cut -d"-" -f2
