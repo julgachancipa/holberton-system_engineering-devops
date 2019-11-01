@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+h=0
+while [ $h -le 20 ]
+do
+    echo "Hour: "$h
+    m=1
+    while [ $m -le 59 ]
+    do
+	echo $m
+	m=$(( m + 1 ))
+    done
+    h=$(( h + 1 ))
+done
