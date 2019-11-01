@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#hour
 h=0
 while [ $h -le 20 ]
 do

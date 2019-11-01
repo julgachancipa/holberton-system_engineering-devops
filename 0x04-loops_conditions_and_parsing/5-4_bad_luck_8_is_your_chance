@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#luck
 i=1
 while [ $i -le 10 ]
 do
