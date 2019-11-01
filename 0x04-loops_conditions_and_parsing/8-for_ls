@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #cut
-for f in $(ls)
+for f in !$(ls)
 do
     echo "$f" | cut -d"-" -f2
 done
