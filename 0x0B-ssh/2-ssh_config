@@ -1,0 +1,4 @@
+sudo nano /etc/ssh/sshd_config
+PermitRootLogin no
+PasswordAuthentication no
+sudo systemctl reload sshd
