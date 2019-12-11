@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# set server name to local host
+sed -i 's/#ServerName www.example.com/ServerName  localhost/g' "/etc/apache2/sites-available/000-default.conf"
