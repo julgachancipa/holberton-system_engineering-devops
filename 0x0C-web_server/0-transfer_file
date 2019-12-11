@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# transfers a file from our client to a server
+if [ $# -le 3 ]
+then
+    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+    LOCAL_FILE=$1
+    IP=$2
+    USER=$3
+    KEY=$4
+    scp -i "$KEY" "$LOCAL_FILE" "$USER""@""$IP":~/
+fi
