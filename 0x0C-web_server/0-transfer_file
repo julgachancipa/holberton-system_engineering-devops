@@ -8,5 +8,5 @@ else
     IP=$2
     USER=$3
     KEY=$4
-    scp -i "$KEY" "$LOCAL_FILE" "$USER""@""$IP":~/
+    scp -o StrictHostKeyChecking=no -i "$KEY" "$LOCAL_FILE" "$USER""@""$IP":~/
 fi
