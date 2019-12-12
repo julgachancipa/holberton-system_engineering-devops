@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#bash script that install nginx and configures the web server
+#not_found_page_404
 sudo apt-get update
 sudo apt-get -y install nginx
 echo "Holberton School" | sudo tee /var/www/html/index.html
