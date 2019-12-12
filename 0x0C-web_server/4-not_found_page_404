@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#bash script that install nginx and configures the web server
+sudo apt-get update
+sudo apt-get -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo service nginx start
+command="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "s/server_name _;/$command/" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+error="server_name _;\n\terror_page 404 \/custom_404.html;\nlocation = \/custom_404.html {\n\troot \/var\/www\/html;\n\tinternal;\n\t}"
+sudo sed -i "s/server_name _;/$error/" /etc/nginx/sites-available/default
+sudo service nginx restart
