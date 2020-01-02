@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# HTTP response contains a custom header
+
+foo="$(cat /etc/hostname)"
+ree="http {\n\tadd_header X-Served-By $foo;\n"
+sudo sed -i "s/http {/$ree/" /etc/nginx/nginx.conf
+sudo service nginx restart
