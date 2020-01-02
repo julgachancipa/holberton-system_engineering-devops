@@ -11,7 +11,7 @@ echo "frontend haproxynode
         mode http
         default_backend backendnodes
 
-backend haproxynode
+backend backendnodes
         balance roundrobin
         server 925-web-01 35.229.86.70:80 check
         server 925-web-02 35.237.216.255:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg
