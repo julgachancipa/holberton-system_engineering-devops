@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # HTTP response contains a custom header
 
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
 foo="$(cat /etc/hostname)"
 ree="http {\n\tadd_header X-Served-By $foo;\n"
 sudo sed -i "s/http {/$ree/" /etc/nginx/nginx.conf
