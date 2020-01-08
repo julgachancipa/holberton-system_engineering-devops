@@ -2,6 +2,6 @@
 #Run Nginx as Nginx
 
 sudo chmod 755 /etc/nginx/nginx.conf
-sudo sed -i 's/#user www-data;/user nginx;/' /etc/nginx/nginx.conf
+sudo sed -i 's/user www-data;/user nginx;/' /etc/nginx/nginx.conf
 sudo sed -i 's/8080/80/g' /etc/nginx/sites-available/default
 sudo -su "nginx" service nginx start
