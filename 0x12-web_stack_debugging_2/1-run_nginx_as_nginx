@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Runs nginx as the nginx user
-sudo chmod -R 755 /etc/nginx/nginx.conf
-sudo sed -i 's/user www-data;/user ngix;/' /etc/nginx/nginx.conf
+sudo pkill -o apache2
+sudo chmod 744 /etc/nginx/nginx.conf
+sudo sed -i 's/#user www-data;/user ngix;/' /etc/nginx/nginx.conf
 sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 su nginx -c "service nginx restart"
