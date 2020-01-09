@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #Make it sweet and short
 sed -i "s/8080/80/g" /etc/nginx/sites-available/default
-echo 1
-sudo service nginx stop
+sudo service nginx start
+pkill -o nginx
