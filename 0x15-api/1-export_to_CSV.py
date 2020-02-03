@@ -16,8 +16,8 @@ if __name__ == "__main__":
 
     file_name = sys.argv[1] + '.csv'
     with open(file_name, 'w') as csvfile:
-        writer = csv.writer(csvfile, quoting=csv.QUOTE_NONNUMERIC)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for todo in todos_json:
             data = [todo['userId'], user_json['username'],
                     todo['completed'], todo['title']]
-            writer.writerow([str(d) for d in data])
+            writer.writerow(data)
