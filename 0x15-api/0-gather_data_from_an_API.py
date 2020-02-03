@@ -15,12 +15,14 @@ if __name__ == "__main__":
 
     done_title = []
     completed = 0
+    all_t = 0
     for todo in todos_json:
         if todo['completed']:
             completed += 1
             done_title.append(todo['title'])
+        all_t += 1
 
     print('Employee {} is done with tasks ({}/{}):'
-          .format(user_json['name'], completed, len(done_title)))
+          .format(user_json['name'], completed, all_t))
     for title in done_title:
         print('\t ' + title)
