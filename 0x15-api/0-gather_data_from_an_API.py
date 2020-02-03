@@ -22,7 +22,7 @@ if __name__ == "__main__":
             done_title.append(todo['title'])
         all_t += 1
 
-    print('Employee {} is done with tasks ({}/{}):'
+    print('Employee {} is done with tasks({}/{}):'
           .format(user_json['name'], completed, all_t))
     for title in done_title:
         print('\t ' + title)
