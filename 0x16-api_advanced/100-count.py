@@ -17,7 +17,7 @@ def count_words(subreddit, word_list, kw_cont={}, next_pg=None):
                                '/hot.json', headers=headers)
 
     if subRhot.status_code == 404:
-        print()
+        return
 
     if kw_cont == {}:
         for word in word_list:
