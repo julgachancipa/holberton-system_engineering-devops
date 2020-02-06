@@ -9,7 +9,8 @@ def top_ten(subreddit):
     headers = {"User-Agent": "julgachancipa"}
 
     subRhot = requests.get('https://reddit.com/r/' + subreddit +
-                           '/hot.json?sort=hot&limit=10', headers=headers)
+                           '/hot.json?sort=hot&limit=10', headers=headers,
+                           allow_redirects=False)
 
     subRhot_dict = subRhot.json()
     subRhot_data = subRhot_dict['data']
