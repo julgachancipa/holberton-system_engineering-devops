@@ -41,7 +41,8 @@ def count_words(subreddit, word_list, kw_cont={}, next_pg=None):
         count_words(subreddit, word_list, kw_cont, next_pg)
 
     else:
-        sorted_res = sorted(kw_cont.items(), reverse=True, key=lambda x: x[1])
+        sorted_abc = sorted(kw_cont.items(), key=lambda x: x[0])
+        sorted_res = sorted(sorted_abc, key=lambda x: (-x[1], x[0]))
         for res in sorted_res:
             if res[1] > 0:
                 print('{}: {}'.format(res[0], res[1]))
