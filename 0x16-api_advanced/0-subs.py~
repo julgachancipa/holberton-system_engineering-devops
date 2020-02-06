@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+"""number of subscribers for a given subreddit"""
+import requests
+import requests.auth
+import sys
+
+
+def number_of_subscribers(subreddit):
+    headers = {"Authorization": "bearer fhTdafZI-0ClEzzYORfBSCR7x3M",
+               "User-Agent": "julgachancipa/0.1"}
+
+    subRinfo = requests.get('https://reddit.com/r/' + subreddit +
+                            '/about.json', headers = headers)
+
+    if subRinfo.status_code == 404:
+        return 0
+    subRinfo_dict = subRinfo.json()
+    subRinfo_data = subRinfo_dict['data']
+    return (subRinfo_data['subscribers'])
