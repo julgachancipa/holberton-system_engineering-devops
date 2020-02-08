@@ -4,7 +4,7 @@ import requests
 import sys
 
 
-def count_words(subreddit, word_list, kw_cont={}, next_pg=None):
+def count_words(subreddit, word_list, kw_cont={}, next_pg=None, reap_kw={}):
     """all hot posts by keyword"""
     headers = {"User-Agent": "julgachancipa"}
 
@@ -22,6 +22,7 @@ def count_words(subreddit, word_list, kw_cont={}, next_pg=None):
     if kw_cont == {}:
         for word in word_list:
             kw_cont[word] = 0
+            reap_kw[word] = word_list.count(word)
 
     subRhot_dict = subRhot.json()
     subRhot_data = subRhot_dict['data']
@@ -38,9 +39,13 @@ def count_words(subreddit, word_list, kw_cont={}, next_pg=None):
                     kw_cont[key] += 1
 
     if next_pg:
-        count_words(subreddit, word_list, kw_cont, next_pg)
+        count_words(subreddit, word_list, kw_cont, next_pg, reap_kw)
 
     else:
+        for key, val in reap_kw.items():
+            if val > 1:
+                kw_cont[key] *= val
+
         sorted_abc = sorted(kw_cont.items(), key=lambda x: x[0])
         sorted_res = sorted(sorted_abc, key=lambda x: (-x[1], x[0]))
         for res in sorted_res:
